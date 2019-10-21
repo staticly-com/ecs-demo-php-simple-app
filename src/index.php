@@ -17,7 +17,7 @@
             <div class="hero-unit">
                 <h1>Simple PHP App</h1>
                 <h2>Congratulations</h2>
-                <h3>Hi Chris</h3>
+                <h3>Git Branch: sta12345-development</h3>
                 <p>How are you? I'm great thanks to CodePipeline.</p>
                 <p>Your PHP application is now running on a container in Amazon ECS.</p>
                 <p>The container is running PHP version <?php echo phpversion(); ?>.</p>
