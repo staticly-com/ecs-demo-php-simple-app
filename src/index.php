@@ -17,7 +17,7 @@
             <div class="hero-unit">
                 <h1>Simple PHP App</h1>
                 <h2>Congratulations</h2>
-                <h3>Git Branch: sta12347-development</h3>
+                <h3>Git Branch: sta12348-development</h3>
                 <p>What a nice branch! Here is change 3.</p>
                 <p>Your PHP application is now running on a container in Amazon ECS.</p>
                 <p>The container is running PHP version <?php echo phpversion(); ?>.</p>
