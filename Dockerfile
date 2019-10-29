@@ -1,22 +1,18 @@
-FROM amazonlinux:2
+# Use the latest version of WordPress
+FROM wordpress:latest
 
-# Install dependencies
-RUN yum install -y \
-    curl \
-    httpd \
-    php \
- && ln -s /usr/sbin/httpd /usr/sbin/apache2
+# Install general utilities
+RUN apt-get -y update && apt-get install -y \
+    nano
+# set term to xterm for nano to work
+ENV TERM xterm
 
-# Install app
-RUN rm -rf /var/www/html/* && mkdir -p /var/www/html
-ADD src /var/www/html
+# Install WP CLI
+RUN curl -O "https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar" && chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/wp
 
-# Configure apache
-RUN chown -R apache:apache /var/www
-ENV APACHE_RUN_USER apache
-ENV APACHE_RUN_GROUP apache
-ENV APACHE_LOG_DIR /var/log/apache2
+# Copy the whole WordPress installation
+#COPY ./wordpress /var/www/html
 
-EXPOSE 80
+# Copy only WordPress plugins
+COPY ./wordpress/wp-content/plugins /var/www/html/wp-content/plugins
 
-CMD ["/usr/sbin/apache2", "-D",  "FOREGROUND"]
