@@ -12,5 +12,6 @@ phases:
     commands:
       - docker push "$IMAGE_URI"
       - printf '[{"name":"simple-app","imageUri":"%s"}]' "$IMAGE_URI" > images.json
+      - cat images.json
 artifacts:
   files: images.json
