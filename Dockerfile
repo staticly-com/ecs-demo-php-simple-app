@@ -14,5 +14,5 @@ RUN curl -O "https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cl
 #COPY ./wordpress /var/www/html
 
 # Copy only WordPress plugins
-COPY ./wordpress/wp-content/plugins /var/www/html/wp-content/plugins
+#COPY ./wordpress/wp-content/plugins /var/www/html/wp-content/plugins
 
